@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {researchDisplay} from '../src/lib/server/research-display.ts';
+test('display retains overview and safe unique source links without inventing facts',()=>{const output=researchDisplay({response:{answer:{answer:'A short overview'},citations:[{title:'Operator',url:'https://example.com'},{title:'Duplicate',url:'https://example.com'},{title:'Unsafe',url:'javascript:alert(1)'}]}});assert.equal(output.summary,'A short overview');assert.equal(output.sources.length,1);});
+test('search output is source material and not an invented prose recommendation',()=>{assert.equal(researchDisplay({results:[{title:'Menu',url:'https://example.com',content:'A deposit of 100'}]}).summary,'');});

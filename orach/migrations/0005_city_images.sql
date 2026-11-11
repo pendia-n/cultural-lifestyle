@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS city_images (city_slug TEXT PRIMARY KEY, cover_url TEXT, images_json TEXT NOT NULL DEFAULT '[]', fetched_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
